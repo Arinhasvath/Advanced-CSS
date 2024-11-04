@@ -1,128 +1,351 @@
 # CSS avancé
 
-## Programme
+## Tag vs Classe vs ID (Sélecteurs)
 
-[C#24] Fondations v2 - Partie 2
-Moyenne : 85,04%
+Les développeurs utilisent de moins en moins d'IDs dans leurs CSS. La raison en est que les IDs doivent toujours être uniques sur une page. Pour une flexibilité maximale, l’utilisation de classes uniquement simplifie la réutilisation des éléments de l’interface utilisateur (UI).
 
-## Badge du projet
+### Cascade ou ordre
 
-CSS avancé
-Novice
-
-Par : David Dias, Ingénieur Logiciel Senior chez HomeX
-Poids : 1
-
-Votre score sera mis à jour au fur et à mesure de votre progression.
-
-## Description
-
-### Concepts
-
-Pour ce projet, nous attendons que vous regardiez ces concepts :
-
-- CSS Reference - Un guide visuel gratuit du CSS
-- Can I use... Tables de support pour HTML5, CSS3, etc.
-- CSS Reference
-- CSS Properties | HTML Dog
-- Box Sizing
-- CSS Specificity
-- CSS Specificity Calculator
-- Play with CSS Selector
-
-## Objectifs d'apprentissage
-
-À la fin de ce projet, vous devriez être capable d'expliquer à n'importe qui, sans l'aide de Google :
-
-- Selectors, properties, et values
-- La différence entre block et inline styling
-- Comment assurer la cohérence entre tous les navigateurs (CSS reset)
-- Comment configurer des CSS variables
-- Les différences entre inline, embeded et external CSS
-- Comment fonctionnent les grid systems (avec floats)
-- La différence entre icons webfonts et SVG icons
-- La différence entre pseudo-classes et pseudo-elements
-- Comment créer des background gradients
-- Comment animer des éléments en CSS
-- Comment transformer (2d, 3d) des éléments
-- Ce que sont les vendor prefixes
-
-## Exigences
-
-### Général
-
-- Éditeurs autorisés : vi, vim, emacs, VSCode, Atom
-- Tous vos fichiers seront interprétés sur Chrome (version 78.x)
-- Tous vos fichiers doivent se terminer par une nouvelle ligne
-- Tous vos fichiers doivent commencer par un commentaire décrivant la tâche
-- Un fichier README.md à la racine du dossier du projet est obligatoire
-- Votre code doit être W3C compliant et valider avec W3C-Validator
-
-## Fichiers nécessaires pour le projet
-
-- favicon.jpg
-- logo-black.png
-- logo-white.png
-
-Stockez tous ces fichiers dans un répertoire nommé "images".
-
-## Structure HTML de base
-
-Utilisez le fichier HTML de démarrage suivant pour votre projet. Remplacez le lien CSS par le bon fichier CSS.
-
-```html
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Homepage - Techium</title>
-    <meta name="description" content="Description of the page less than 150 characters">
-    <link rel="icon" type="image/png" href="images/favicon.jpg">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:700&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='#'>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header" data-section-theme="dark">
-        <div class="container">
-            <div class="header-logo">
-                <a href="#">
-                    <img src="images/logo-white.png" alt="Techium logo" width="160" height="40">
-                </a>
-            </div>
-            <nav class="navbar-menu">
-                <ul class="nav">
-                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="#works" class="nav-link">Works</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#latest_news" class="nav-link">Latest news</a></li>
-                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Main -->
-    <main>
-        <!-- Contenu principal ici -->
-    </main>
-    <!-- Footer -->
-    <footer class="footer" data-section-theme="dark">
-        <!-- Contenu du footer ici -->
-    </footer>
-</body>
-</html>
+```css
+* { } /* sélectionne tous les éléments */
+section /* sélectionne toutes les balises section */
+.my-class { } /* sélectionne tous les éléments ayant cette classe */
+.my-block > .my-title { }
+.my-block + .my-title { }
+.my-block ~ .my-title { }
+#my-div /* sélectionne l’élément avec cet ID */
 ```
 
-## Objectif final du projet
+## Couleurs
 
-Note importante : les détails sont importants ! Minuscules vs majuscules / mauvaise lettre… soyez vigilant !
+La propriété `color` en CSS définit la couleur du texte dans un élément HTML.
 
-Attention ! Vous devez valider toutes les questions du quiz avant de passer aux tâches du projet.
+Les couleurs en CSS sont généralement représentées par des noms, des valeurs hexadécimales ou des valeurs RGB.
 
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/616ee405-6a45-45c3-87ce-f8cb31b499a5/paste.txt
-[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/1311c321-9e58-4a55-a816-888c88851c3a/paste-2.txt
-[3] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/8644949e-a1a3-4a9e-9f1c-ba94642ac3b0/paste-3.txt
+### Conseil d'accessibilité
+Lorsque vous choisissez des couleurs pour votre design, il est toujours conseillé de prendre en compte l'accessibilité. Les navigateurs modernes permettent désormais de vérifier facilement si une couleur est accessible ou non.
+
+### Exemple de code
+```css
+p { color: red; }
+p { color: #f00; }
+p { color: #ff0000; }
+p { color: rgb(255,0,0); }
+p { color: rgb(100%, 0%, 0%); }
+p { color: hsl(0, 100%, 50%); }
+```
+
+### Ressources
+- [color - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
+- Liste des couleurs
+- Colors - A nicer color palette for the web
+- Color Names — HTML Color Codes
+- Noms de couleur CSS
+
+---
+
+## Variables CSS
+
+Les propriétés personnalisées ou variables CSS représentent des valeurs pouvant être réutilisées dans plusieurs déclarations.
+
+### Exemple de code
+```css
+:root {
+  --main-bg-color: blue;
+}
+body {
+  color: var(--main-bg-color);
+}
+```
+
+### Ressources
+- [var() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/var)
+- [Custom properties (–*): CSS variables - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+
+---
+
+## Unités et valeurs
+
+Différentes unités CSS peuvent être utilisées. `px` est l’une des plus utilisées, et il s’agit d’une unité absolue, contrairement aux unités relatives comme `rem`.
+
+Les unités absolues et relatives sont utilisées dans des contextes différents.
+
+- `rem` : taille de la police, remplissage, marge
+- `em` : requêtes de média
+
+### Attention !
+`REM` est relatif à l’élément racine (`<html>`), pas à `<body>`.
+
+### Exemple de code
+```css
+font-size: 2rem;
+padding: 1.2rem 2rem;
+```
+
+### Ressources
+- [CSS values and units - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)
+
+---
+
+## Interligne (`line-height`)
+
+La propriété `line-height` définit la hauteur entre les lignes de texte.
+
+### Conseil d'accessibilité
+Utilisez un minimum de 1,5 pour l’interligne dans le contenu principal. Cela aidera les personnes ayant des troubles visuels à lire plus facilement.
+
+### Exemple de code
+```css
+p {
+    line-height: 1;
+}
+```
+
+---
+
+## Décoration de texte (`text-decoration`)
+
+La propriété abrégée `text-decoration` définit l'apparence des lignes décoratives sur le texte.
+
+### Exemple de code
+```css
+a {
+  text-decoration: line-through;
+}
+```
+
+---
+
+## Alignement du texte (`text-align`)
+
+La propriété `text-align` détermine l’alignement horizontal d’un élément de type BLOCK.
+
+### Ressources
+- [text-align - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
+
+---
+
+## Transformation de texte (`text-transform`)
+
+La propriété `text-transform` permet de capitaliser un texte.
+
+### Exemple de code
+```css
+p {
+  text-transform: lowercase;
+}
+```
+
+---
+
+## Espacement des lettres (`letter-spacing`)
+
+La propriété `letter-spacing` détermine l’espacement entre les caractères.
+
+### Exemple de code
+```css
+a {
+  letter-spacing: -0.4rem;
+}
+```
+
+---
+
+## Pseudo-classes
+
+Une pseudo-classe CSS est un mot-clé ajouté à un sélecteur pour spécifier un état différent de l’élément.
+
+```css
+selector:pseudo-class {
+  property: value;
+}
+```
+
+### Exemple de code
+```css
+a:link {
+  color: green;
+}
+a:visited {
+  color: cadetblue;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  color: darkcyan;
+}
+```
+
+### Ressources
+- [Pseudo-classes - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
+---
+
+## Réinitialisation/Normalisation CSS
+
+L’expression `CSS reset` vient d'Eric Meyer, qui a créé une feuille de style de réinitialisation en 2007 pour réduire les incohérences entre navigateurs.
+
+### Ressources
+- CSS Tools: Reset CSS
+- Normalize CSS ou CSS Reset?! - Elad Shechter - Medium
+
+---
+
+## Box Model
+
+Le box model est une base essentielle à comprendre pour créer des mises en page et aligner les éléments sur la page.
+
+### Exemple de code
+```css
+.box {
+  box-sizing: content-box;
+}
+.box {
+  box-sizing: border-box;
+}
+.box-dimensions {
+  width: 100px;
+  height: 50px;
+  padding-top: 30px;
+  margin: 5px;
+}
+```
+
+### Ressources
+- [Introduction to the CSS basic box model - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
+
+---
+
+## Flux et affichage CSS
+
+Le flux normal, ou Flow Layout, est la façon dont les éléments Block et Inline sont affichés sur une page avant tout changement de mise en page.
+
+---
+
+## Système de grille
+
+Les systèmes de grille sont utilisés pour organiser le contenu des sites web. Avant `flexbox` et `css grid`, les systèmes de grille utilisaient des `floats`.
+
+### Ressources
+- [Floats Tutorial | HTML & CSS Is Hard](https://internetingishard.com/html-and-css/floats/)
+
+---
+
+## Pseudo-éléments
+
+Un pseudo-élément CSS permet de styliser une partie spécifique d’un élément.
+
+### Exemple de code
+```css
+a::after {
+  content: '→';
+}
+p::first-letter {
+  font-size: 130%;
+}
+```
+
+---
+
+## Sélecteurs d'attributs
+
+Les sélecteurs d'attributs vous permettent de cibler un attribut présent sur un élément HTML.
+
+### Exemple de code
+```css
+a[href*="facebook"] {
+  color: #3C5A99;
+}
+a[href^="#"] {
+  background-color: gold;
+}
+a[href$=".org"] {
+  color: red;
+}
+```
+
+---
+
+## Fond
+
+```css
+.box {
+  background: ;
+}
+```
+
+---
+
+## Bordures
+
+La propriété abrégée `border` définit la bordure d’un élément.
+
+### Exemple de code
+```css
+.box {
+  display: block;
+  padding: 1rem;
+  border-width: 2px;
+  border-style: double;
+  border-color: orange;
+  border-radius: 12px;
+}
+```
+
+---
+
+## Positionnement
+
+Le positionnement en CSS utilise plusieurs propriétés permettant de positionner les éléments sur une page HTML.
+
+### Exemple de code
+```css
+.component {
+  position: sticky;
+  top: 0;
+}
+```
+
+---
+
+## Transformation CSS
+
+Les propriétés de transformation CSS permettent de faire pivoter, agrandir, déformer ou déplacer un élément.
+
+### Exemple de code
+```css
+transform: perspective(17px);
+transform: rotate3d(1, 2.0, 3.0, 10deg);
+transform: translate(12px, 50%);
+transform: scale(2, 0.5);
+transform: skew(30deg, 20deg);
+```
+
+---
+
+## Animation CSS
+
+Les propriétés d'animation en CSS permettent d'animer d'autres propriétés d'un élément.
+
+### Exemple de code
+```css
+@keyframes example {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: red;
+  }
+}
+.box {
+  width: 10rem;
+  height: 10rem;
+  background-color: blue;
+  animation-name: example;
+  animation-duration: 3s;
+}
+```
+
+---
+
