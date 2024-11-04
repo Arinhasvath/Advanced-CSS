@@ -1,6 +1,4 @@
-Je comprends votre demande. Je vais vous fournir une traduction en français du contenu, structurée de manière similaire à ce que vous avez partagé, avec des explications détaillées sur le CSS. Voici une version adaptée pour votre GitHub en format Markdown (.md) :
-
-# Projet CSS Avancé
+# CSS avancé
 
 ## Description
 
@@ -64,94 +62,15 @@ Utilisez le fichier HTML de démarrage suivant pour votre projet. Remplacez le l
 </html>
 ```
 
-## Explications CSS détaillées
+Vous pouvez sauvegarder ceci dans un fichier index.html et remplacer le `<link rel='stylesheet' href='#'>` par le bon fichier CSS.
 
-### Sélecteurs CSS
+## Objectif final du projet
 
-Les sélecteurs CSS permettent de cibler des éléments HTML spécifiques pour leur appliquer des styles.
+Note importante : les détails sont importants ! Minuscules vs majuscules / mauvaise lettre… soyez vigilant !
 
-Exemple :
-```css
-/* Sélecteur de classe */
-.header {
-    background-color: #333;
-}
-
-/* Sélecteur d'ID */
-#main-content {
-    padding: 20px;
-}
-
-/* Sélecteur d'élément */
-p {
-    font-size: 16px;
-}
-```
-
-### Propriétés et valeurs CSS
-
-Les propriétés CSS définissent quel aspect de l'élément vous souhaitez modifier, tandis que les valeurs spécifient comment le modifier.
-
-Exemple :
-```css
-.button {
-    background-color: #007bff; /* Propriété : valeur */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
-```
-
-### Style en bloc vs en ligne
-
-- Style en bloc : occupe toute la largeur disponible et commence sur une nouvelle ligne.
-- Style en ligne : occupe seulement l'espace nécessaire et ne force pas de nouvelle ligne.
-
-Exemple :
-```css
-.block-element {
-    display: block;
-    width: 100%;
-}
-
-.inline-element {
-    display: inline;
-}
-```
-
-### Réinitialisation CSS
-
-Une réinitialisation CSS aide à assurer la cohérence entre les navigateurs en supprimant les styles par défaut.
-
-Exemple de réinitialisation de base :
-```css
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-```
-
-### Variables CSS
-
-Les variables CSS permettent de stocker des valeurs spécifiques à réutiliser dans tout votre feuille de style.
-
-Exemple :
-```css
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-}
-
-.button {
-    background-color: var(--primary-color);
-}
-```
-
-Je continuerai avec plus d'explications détaillées sur les autres concepts dans le prochain message pour respecter la limite de longueur.
+Attention ! Vous devez valider toutes les questions du quiz avant de passer aux tâches du projet.
 
 Citations:
 [1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/616ee405-6a45-45c3-87ce-f8cb31b499a5/paste.txt
 [2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/de2c6f8a-5372-4950-98e9-36f0c61974b9/paste.txt
 [3] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/09c7772c-1f1d-4805-8038-d0d82f43fb6a/paste-2.txt
-[4] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/29334386/026df86f-b48d-4461-bde9-799266f3e9b0/paste-3.txt
