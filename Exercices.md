@@ -2227,3 +2227,256 @@ graph TD
 3. Interface interactive
 4. Responsive
 
+# TASK 31: Citations dans les Témoignages
+
+**Question**: Comment ajouter et styliser des guillemets décoratifs pour les témoignages ?
+
+```css
+/* 1. Position relative pour le conteneur */
+.card-quote {
+    position: relative;
+}
+
+/* 2. Style du guillemet */
+.card-quote::before {
+    content: '\201C'; /* Guillemet Unicode */
+    position: absolute;
+    top: -4.5rem;
+    left: -1rem;
+    color: #efeded;
+    font-size: 10rem;
+    z-index: -1;
+}
+```
+
+```mermaid
+graph TD
+    A[Card Quote] --> B[Container]
+    A --> C[Pseudo-élément]
+    
+    B --> B1[Position Relative]
+    
+    C --> C1[Contenu Unicode]
+    C --> C2[Position Absolue]
+    C --> C3[Styling]
+    
+    C3 --> D1[Taille]
+    C3 --> D2[Couleur]
+    C3 --> D3[Z-index]
+
+    style B1 fill:#f9f,stroke:#333
+    style C1,C2 fill:#9ff,stroke:#333
+    style D1,D2,D3 fill:#ff9,stroke:#333
+
+```
+
+**Points de vérification**:
+
+1. Structure de base:
+   - ✓ Position relative sur conteneur
+   - ✓ Pseudo-élément configuré
+   - ✓ Contenu Unicode correct
+
+2. Style du guillemet:
+   - ✓ Positionnement précis
+   - ✓ Taille appropriée
+   - ✓ Couleur subtile
+   - ✓ Z-index négatif
+
+**Structure détaillée**:
+```css
+/* 1. Conteneur de citation */
+.card-quote {
+    position: relative;
+    /* Assure le bon positionnement du pseudo-élément */
+}
+
+/* 2. Pseudo-élément pour le guillemet */
+.card-quote::before {
+    /* Contenu et position */
+    content: '\201C';
+    position: absolute;
+    
+    /* Positionnement précis */
+    top: -4.5rem;
+    left: -1rem;
+    
+    /* Style visuel */
+    color: #efeded;
+    font-size: 10rem;
+    
+    /* Placement en arrière-plan */
+    z-index: -1;
+}
+```
+
+**Explications techniques**:
+
+1. **Positionnement du conteneur**:
+```css
+.card-quote {
+    position: relative;
+    /* Crée un contexte de positionnement pour le pseudo-élément */
+}
+```
+
+2. **Configuration du guillemet**:
+```css
+.card-quote::before {
+    content: '\201C';    /* Guillemet typographique */
+    font-size: 10rem;    /* Grande taille pour effet décoratif */
+    z-index: -1;         /* Place derrière le contenu */
+}
+```
+
+**Pourquoi ces choix ?**:
+
+1. **Position relative**:
+   - Crée un contexte de positionnement
+   - Maintient la structure du document
+   - Permet le positionnement absolu du guillemet
+
+2. **Pseudo-élément**:
+   - Évite le markup HTML supplémentaire
+   - Facilite la maintenance
+   - Purement décoratif
+
+3. **Styling**:
+   - Couleur légère pour effet subtil
+   - Grande taille pour impact visuel
+   - Z-index négatif pour ne pas interférer
+
+4. **Positionnement**:
+   - Top négatif pour placement au-dessus
+   - Left négatif pour débordement naturel
+   - Valeurs précises pour alignement parfait
+
+# TASK 32: Incorporation des Transitions
+
+**Question**: Comment ajouter des transitions fluides pour améliorer l'expérience utilisateur ?
+
+```css
+/* 1. Variables de transition */
+:root {
+    --transition-duration: .3s;
+    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
+}
+
+/* 2. Transitions sur les cartes de travail */
+.card-work:hover .card-image {
+    transform: scale(1.2);
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work .card-outer {
+    transform: scale(0.95);
+}
+
+/* 3. Transitions sur la navigation */
+.nav .nav-link::before {
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+/* 4. Transitions sur les boutons */
+.button:hover {
+    transition-duration: var(--transition-duration);
+    transition-property: color, background-color;
+}
+```
+
+```mermaid
+graph TD
+    A[Transitions] --> B[Variables]
+    A --> C[Composants]
+    
+    B --> B1[Duration]
+    B --> B2[Timing Function]
+    
+    C --> C1[Cards]
+    C --> C2[Navigation]
+    C --> C3[Buttons]
+    
+    C1 --> D1[Scale Effect]
+    C2 --> D2[Before Element]
+    C3 --> D3[Color Changes]
+
+    style B1,B2 fill:#f9f,stroke:#333
+    style D1,D2,D3 fill:#9ff,stroke:#333
+
+```
+
+**Points de vérification**:
+
+1. Variables:
+   - ✓ Durée définie
+   - ✓ Fonction de timing
+   - ✓ Réutilisabilité
+
+2. Implémentations:
+   - ✓ Cartes de travail
+   - ✓ Navigation
+   - ✓ Boutons
+   - ✓ Animations fluides
+
+**Structure complète**:
+```css
+/* 1. Configuration des variables */
+:root {
+    --transition-duration: .3s;
+    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
+}
+
+/* 2. Transitions des cartes */
+.card-work:hover .card-image {
+    transform: scale(1.2);
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+.card-work .card-inner {
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+/* 3. Navigation */
+.nav .nav-link::before {
+    transition: var(--transition-duration) var(--transition-cubic-bezier);
+}
+
+/* 4. Boutons */
+.button {
+    transition-duration: var(--transition-duration);
+    transition-property: color, background-color;
+}
+```
+
+**Explications techniques**:
+
+1. **Configuration Bezier**:
+```css
+cubic-bezier(0.17, 0.67, 0, 1.01)
+/* Donne une accélération naturelle au début
+   et un ralentissement en fin d'animation */
+```
+
+2. **Scale Transform**:
+```css
+transform: scale(1.2);
+/* Agrandissement de 20% au survol */
+```
+
+**Pourquoi ces choix ?**:
+
+1. **Durée**:
+   - 0.3s est optimal pour la perception
+   - Assez rapide pour être réactif
+   - Assez long pour être visible
+
+2. **Cubic Bezier**:
+   - Animation naturelle
+   - Départ progressif
+   - Fin douce
+
+3. **Propriétés transitionnées**:
+   - Transform pour les performances
+   - Couleurs pour feedback visuel
+   - Background pour changements d'état
+
